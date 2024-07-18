@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.czcps.oa.dao.NoticeDao">
+
+     <insert id="insert"  parameterType="cn.czcps.oa.entity.Notice" useGeneratedKeys="true" keyColumn="notice_id" keyProperty="noticeId"  >
+        INSERT INTO  sys_notice (notice_id, receriver_id, content, create_time)
+        VALUES (#{noticeId},#{receriverId},#{content},#{createTime})
+     </insert>
+
+
+     <select id="selectByReceiverId" parameterType="long" resultType="cn.czcps.oa.entity.Notice">
+        select *from sys_notice
+        where receriver_id=#{value} order by create_time desc limit 0,100
+     </select>
+
+
+</mapper>

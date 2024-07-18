@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    <environments default="dev">
+        <environment id="dev">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="cn.czcps.oa.dataSource.DruidDataSourceFactory">
+                <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/oa? useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai&amp;allowPublicKeyRetrieval=true"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+                <property name="maxActive" value="20"/>
+                <property name="initialSize" value="10"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mappers/user.xml"></mapper>
+        <mapper resource="mappers/rbac.xml"></mapper>
+        <mapper resource="mappers/employee.xml"></mapper>
+        <mapper resource="mappers/department.xml"></mapper>
+        <mapper resource="mappers/notice.xml"></mapper>
+        <mapper resource="mappers/leaveForm.xml"></mapper>
+        <mapper resource="mappers/processFlow.xml"></mapper>
+        <mapper resource="mappers/role.xml"></mapper>
+        <mapper resource="mappers/lesson.xml"></mapper>
+
+    </mappers>
+</configuration>
